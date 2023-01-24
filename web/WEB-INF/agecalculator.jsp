@@ -14,7 +14,7 @@
     <body>
         <h1>Hello World!</h1>
         <form method="post" action="AgeCalculatorServlet">
-            Enter your Age: <input type="text" name="age"><br>
+            Enter your Age: <input type="number" name="age"><br>
             <input type="submit" value="Age next birthday"><br>
             <a href="####"> Arithmetic Calculator</a>
         </form>
