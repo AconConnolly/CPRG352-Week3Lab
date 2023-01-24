@@ -2,11 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>AgeCalculatorServlet</servlet-name>
-        <servlet-class>AgeCalculatorServlet</servlet-class>
+        <servlet-class>servlets.TheAgeCalculatorServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TheAgeCalculatorServlet</servlet-name>
-        <servlet-class>servlets.TheAgeCalculatorServlet</servlet-class>
+        <servlet-class>AgeCalculator</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AgeCalculatorServlet</servlet-name>
@@ -21,4 +21,7 @@
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>AgeCalculatorServlet</welcome-file>
+    </welcome-file-list>
 </web-app>
