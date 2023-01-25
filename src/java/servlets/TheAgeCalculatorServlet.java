@@ -27,29 +27,34 @@ public class TheAgeCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
             
       String age = request.getParameter("age");
-      Integer ageInt = (Integer.parseInt(age)) + 1;
-     
-      request.setAttribute("age", ageInt);
       
-      if(age.equals("")){
-          String test = "You must give your current age";
-          request.setAttribute("test", test);
-           
-          getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
-                .forward(request, response);
-          return;
-      }
-      if(age instanceof String) {
-          String notInt = "You must enter a number";
+      while (true) {
+          
+      
+        if(age.equals("")){
+            String test = "You must give your current age";
+            request.setAttribute("test", test);
+
+            getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+                  .forward(request, response);
+            break;
+        }
+        try {
+            Integer ageInt = (Integer.parseInt(age)) + 1;
+ 
+            request.setAttribute("age", ageInt);
+             getServletContext().getRequestDispatcher("/WEB-INF/sayAge.jsp")
+                    .forward(request, response);
+            break;
+        } catch (NumberFormatException ex) {
+            String notInt = "You must enter a number";
           request.setAttribute("notInt", notInt);
           
           getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
                   .forward(request, response);
-      }
-     
-        getServletContext().getRequestDispatcher("/WEB-INF/sayAge.jsp")
-                .forward(request, response);
         }
+      }
+   
+    }
     
-
 }

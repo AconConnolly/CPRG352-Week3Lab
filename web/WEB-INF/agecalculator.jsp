@@ -16,6 +16,7 @@
         <form method="post" action="AgeCalculatorServlet">
             Enter your Age: <input type="text" name="age"><br>
             <p>${test}</p>
+            <p>${notInt}</p>
             <input type="submit" value="Age next birthday"><br>
             <a href="####"> Arithmetic Calculator</a>
         </form>
