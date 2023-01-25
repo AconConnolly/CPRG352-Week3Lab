@@ -12,13 +12,13 @@
         <title>Age Calculator</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Check Your Age Next Year!</h1>
         <form method="post" action="AgeCalculatorServlet">
             Enter your Age: <input type="text" name="age"><br>
             <p>${test}</p>
             <p>${notInt}</p>
             <input type="submit" value="Age next birthday"><br>
-            <a href="####"> Arithmetic Calculator</a>
+            <a href="arithCalc"> Arithmetic Calculator</a>
         </form>
         
     </body>

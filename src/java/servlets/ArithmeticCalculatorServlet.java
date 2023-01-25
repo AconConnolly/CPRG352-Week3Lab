@@ -12,32 +12,39 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alexc
  */
-public class TheAgeCalculatorServlet extends HttpServlet {
+public class ArithmeticCalculatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                 .forward(request, response);
         
     }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-      String age = request.getParameter("age");
-      
+        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
+                .forward(request, response);
+        
+        String first = request.getParameter("first");
+        String second = request.getParameter("second");
+        
         while (true) {
-            if(age.equals("")){
+            if(first.equals("") || second.equals("")){
                 String test = "You must give your current age";
                 request.setAttribute("test", test);
 
-                getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+                getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                       .forward(request, response);
                 break;
             }
             try {
-                Integer ageInt = (Integer.parseInt(age)) + 1;
+                Integer firstInt = Integer.parseInt(first);
+                Integer secondInt = Integer.parseInt(second);
+                
+                if ()
 
                 request.setAttribute("age", ageInt);
                  getServletContext().getRequestDispatcher("/WEB-INF/sayAge.jsp")
@@ -51,5 +58,7 @@ public class TheAgeCalculatorServlet extends HttpServlet {
                       .forward(request, response);
             }
         }
+        
     }
+
 }
