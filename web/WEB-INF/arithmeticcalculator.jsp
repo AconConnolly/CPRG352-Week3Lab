@@ -13,16 +13,17 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <form method="post" action="ArithmeticCalculatorServlet">
+        <form method="post" action="arithCalc">
             First: <input type="text" name="first"><br>
             Second: <input type="text" name="second"><br>
             <input type="submit" name="math" value="+">
             <input type="submit" name="math" value="-">
             <input type="submit" name="math" value="*">
             <input type="submit" name="math" value="%">
-            ${test}
             
-            ${total}<br>
+            <br>${test}<br>
+            
+            <br>Results: ${total}<br>
             <a href="AgeCalculatorServlet"> Age Calculator</a>
         </form>
     </body>
