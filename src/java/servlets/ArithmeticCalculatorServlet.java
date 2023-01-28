@@ -2,7 +2,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,36 +24,54 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
-                .forward(request, response);
         
         String first = request.getParameter("first");
         String second = request.getParameter("second");
+        String math = request.getParameter("math");
+        
         
         while (true) {
             if(first.equals("") || second.equals("")){
-                String test = "You must give your current age";
+                String test = "Invalid";
                 request.setAttribute("test", test);
+                
 
                 getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                       .forward(request, response);
                 break;
             }
             try {
-                Integer firstInt = Integer.parseInt(first);
-                Integer secondInt = Integer.parseInt(second);
+                Double firstDouble = Double.parseDouble(first);
+                Double secondDouble = Double.parseDouble(second);
                 
-                if ()
-
-                request.setAttribute("age", ageInt);
-                 getServletContext().getRequestDispatcher("/WEB-INF/sayAge.jsp")
+                double total = 0;
+                switch (math) {
+                    case "+": 
+                        total = firstDouble + secondDouble;
+                        request.setAttribute("total", total);
+                        break;
+                    case "-": 
+                        total = firstDouble - secondDouble;
+                        request.setAttribute("total", total);
+                        break;
+                    case "*": 
+                        total = firstDouble * secondDouble;
+                        request.setAttribute("total", total);
+                        break;
+                    case "%": 
+                        total = firstDouble / secondDouble;
+                        request.setAttribute("total", total);
+                        break;
+                        
+                }
+                
+                 getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                         .forward(request, response);
-                break;
             } catch (NumberFormatException ex) {
-                String notInt = "You must enter a number";
+                String notInt = "Invalid";
               request.setAttribute("notInt", notInt);
 
-              getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+              getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                       .forward(request, response);
             }
         }
